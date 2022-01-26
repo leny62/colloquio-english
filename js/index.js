@@ -11,20 +11,22 @@ const nameLabel = document.querySelector('#name');
 const emailLabel = document.querySelector('#email');
 const phoneLabel = document.querySelector('#phone');
 const companyLabel = document.querySelector('#company');
-const phoneRegex = /^\d{10}$/;
+const phoneRegex = /^\d{8,10}$/;
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const validator = () => {
+    
     if (nameInput.value.length < 1) {
         nameLabel.innerHTML = 'Write your name and surname';
         nameInput.style.borderColor = 'red';
         nameLabel.style.color = 'red';
     }
-    if (emailInput.value.length < 1 || !emailInput.value.match(emailRegex)) {
+    if (emailInput.value.length < 1 || !emailInput.value.match(emailRegex) ){
         emailLabel.innerHTML = 'Write an email(example@example.com)'
         emailInput.style.borderColor = 'red';
         emailLabel.style.color = 'red';
     }
+
     if (phoneInput.value.length < 1) {
         phoneLabel.innerHTML = 'Write your phone number';
         phoneInput.style.borderColor = 'red';
@@ -64,7 +66,7 @@ const reset = () => {
 const handlePhoneChange = (phone) => {
     if (!phone.target.value.match(phoneRegex)) {
         phoneInput.style.borderColor = 'red';
-        phoneLabel.innerHTML = 'Phone number must be 10 digits';
+        phoneLabel.innerHTML = 'Phone number must be between 8 and 10 digits';
         phoneLabel.style.color = 'red';
     }
     
@@ -83,7 +85,15 @@ const clearErrorOnChange = (inputName, labelName) => {
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault()
     validator()
+    if(nameLabel.style.color !=="red" && emailLabel.style.color!=="red" && companyLabel.style.color!=="red" && phoneLabel.style.color!=="red" && textArea.style.color!=="red"){
+    document.querySelector(".loaderContainer").classList.remove("hidden")
+    }
 });
+
+document.querySelector(".close").addEventListener("click", (e)=>{
+    e.preventDefault()
+    document.querySelector(".loaderContainer").classList.add("hidden")
+})
 
 resetBtn.addEventListener('click', (e) => {
     e.preventDefault()
