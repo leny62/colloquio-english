@@ -33,47 +33,60 @@ header img {
 main {
     display: flex;
     flex-direction: column;
-    padding:  0 150px 0 150px;
+    align-items: center;
+    justify-content: center;
+    /* width: 90%; */
+    /* padding-left: 20%; */
 }
-main h1 {
+main form h1 {
     padding-top: 50px;
+    
 
 }
 main form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding-bottom: 20vh;
+
 }
-.name-email-wrapper {
+.name-email-wrapper, 
+.phone-company-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-top: 50px;
 }
-.input-wrapper {
+.input-wrapper, 
+.textarea-wapper {
     flex-direction: column; 
     display: flex;
+    
 }
-.input-wrapper label {
+.right-content {
+    padding-left: 150px;
+}
+.textarea-wapper {
+    padding-top: 50px;
+    width: 115% ;
+}
+.input-wrapper label, 
+#textarea {
     font-size: var(--label);
+    padding-bottom: 20px;
 }
 .input-wrapper input {
     height: 30px;
-    width: 350px;
+    min-width: 500px;
     border-top: var(--borderTp);
     border-left: var(--borderLeft);
     border-right: var(--borderRight);
     border-bottom: var(--borderBtm);
     outline: var(--none-outlline);
+    padding-left: 5px;
 }
-.phone-company-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 60px;
-}
+
 main textarea {
-    margin-top: 50px;
     border-top: var(--borderTp);
     border-left: var(--borderLeft);
     border-right: var(--borderRight);
@@ -81,12 +94,14 @@ main textarea {
     font-size: var(--label);
     height: 160px;
     outline: var(--none-outlline);
+    margin-right: 150px;
 }
 .btn {
     display: flex;
     padding-top: 30px;
     align-items: center;
     justify-content: center;
+    margin-right: 100px;
 }
 .btn button {
     height: 55px;
@@ -114,7 +129,9 @@ main textarea {
 
 footer{
     bottom: 0;
-    margin-top: 40px;
+    right: 0;
+    left: 0;
+    position: fixed;
     background-color: #222A2E;
     color: #ffffff;
     display: flex;
@@ -126,11 +143,12 @@ footer{
     font-size: 13px;
 }
 
-@media screen and (max-width: 1063px) {
+/* @media screen and (max-width: 1502px) {
     main {
-        padding:  0 100px 0 100px;
-    }
+        padding:  0 0px 0 0px;
+    } 
 }
+
 @media screen and (max-width: 983px) {
     main {
         padding:  0 100px 0 100px;
@@ -145,7 +163,7 @@ footer{
     main {
         padding:  0 30px 0 30px;
     } 
-}
+} */
 @media screen  and (max-width: 768px){
     main {
         padding:  0 30px 0 30px;
@@ -162,7 +180,15 @@ footer{
     .input-wrapper {
         padding-top: 50px;
     }
-}
+    .right-content {
+        padding-left: 0;
+    }
+} 
+/* @media screen  and (max-width: 637px){
+    main {
+        padding:  0 30px 0 30px;
+    } 
+} */
 .hidden{
     display: none;
 }
