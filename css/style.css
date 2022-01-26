@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 
-*{
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
+
 :root {
-    --borderTp:none;
+    --borderTp: none;
     --borderLeft: none;
     --borderRight: none;
     --borderBtm: 1px solid #000000;
@@ -16,33 +17,50 @@
     --white: #FFFFFF;
     --none-outlline: none;
 }
-body{
-    background-color: #fff!important;
+
+body {
+    background-color: #fff !important;
 }
-header{
-   background-color: #A6CBDE;
-   height: 100px;
-   width: 100%; 
-   justify-content: center;
-   align-items: center;
-   display: flex;
+
+header {
+    background-color: #A6CBDE;
+    height: 80px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
+
 header img {
     height: 30px;
 }
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* width: 90%; */
-    /* padding-left: 20%; */
 }
+
+.textare-wrapper {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 main form h1 {
-    padding-top: 50px;
-    
+    padding-top: 10px;
+
 
 }
+
 main form {
     display: flex;
     flex-direction: column;
@@ -50,64 +68,67 @@ main form {
     padding-bottom: 20vh;
 
 }
-.name-email-wrapper, 
+
+.name-email-wrapper,
 .phone-company-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-top: 50px;
 }
-.input-wrapper, 
-.textarea-wapper {
-    flex-direction: column; 
-    display: flex;
-    
-}
+
 .right-content {
     padding-left: 150px;
 }
-.textarea-wapper {
-    padding-top: 50px;
-    width: 115% ;
-}
-.input-wrapper label, 
-#textarea {
-    font-size: var(--label);
-    padding-bottom: 20px;
-}
-.input-wrapper input {
-    height: 30px;
-    min-width: 500px;
-    border-top: var(--borderTp);
-    border-left: var(--borderLeft);
-    border-right: var(--borderRight);
-    border-bottom: var(--borderBtm);
-    outline: var(--none-outlline);
-    padding-left: 5px;
+
+.input-wrapper {
+    margin-top: 20px;
+    width: 45%;
 }
 
-main textarea {
-    border-top: var(--borderTp);
-    border-left: var(--borderLeft);
-    border-right: var(--borderRight);
-    border-bottom: var(--borderBtm);
-    font-size: var(--label);
-    height: 160px;
-    outline: var(--none-outlline);
-    margin-right: 150px;
+.input-wrapper label {
+    display: block;
 }
+
+.input-wrapper input {
+    height: 30px;
+    width: 100%;
+    border: var(--borderNone);
+    border-bottom: var(--borderBtm);
+    padding-left: 5px;
+    outline: var(--none-outlline);
+}
+
+.textare-wrapper textarea {
+    width: 100%;
+    border: var(--borderNone);
+    border-bottom: var(--borderBtm);
+    padding-left: 5px;
+    outline: var(--none-outlline);
+}
+
+#form-container {
+    width: 80%;
+    display: block;
+
+}
+
 .btn {
     display: flex;
-    padding-top: 30px;
+    /*padding-top: 30px;
     align-items: center;
+
+    margin-right: 100px; */
     justify-content: center;
-    margin-right: 100px;
+    width: 100%;
 }
+
 .btn button {
     height: 55px;
     width: 131px;
     margin-top: 20px;
 }
+
 .btn-send {
     background-color: #A6CBDE;
     border: var(--borderNone);
@@ -115,6 +136,7 @@ main textarea {
     color: var(--white);
     font-size: var(--label);
 }
+
 .btn-reset {
     background-color: #A2A3A4;
     border: var(--borderNone);
@@ -122,12 +144,14 @@ main textarea {
     color: var(--white);
     font-size: var(--label);
 }
-.btn-send:hover, .btn-reset:hover{
+
+.btn-send:hover,
+.btn-reset:hover {
     background-color: #222A2E;
     cursor: pointer;
 }
 
-footer{
+footer {
     bottom: 0;
     right: 0;
     left: 0;
@@ -143,56 +167,11 @@ footer{
     font-size: 13px;
 }
 
-/* @media screen and (max-width: 1502px) {
-    main {
-        padding:  0 0px 0 0px;
-    } 
-}
-
-@media screen and (max-width: 983px) {
-    main {
-        padding:  0 100px 0 100px;
-    }
-}
-@media screen and (max-width: 983px) {
-    main {
-        padding:  0 50px 0 50px;
-    }
-}
-@media screen  and (max-width: 837px){
-    main {
-        padding:  0 30px 0 30px;
-    } 
-} */
-@media screen  and (max-width: 768px){
-    main {
-        padding:  0 30px 0 30px;
-    } 
-    .input-wrapper input {
-        width: 100%;
-    }
-    .name-email-wrapper,
-    .phone-company-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .input-wrapper {
-        padding-top: 50px;
-    }
-    .right-content {
-        padding-left: 0;
-    }
-} 
-/* @media screen  and (max-width: 637px){
-    main {
-        padding:  0 30px 0 30px;
-    } 
-} */
-.hidden{
+.hidden {
     display: none;
 }
-.loader{
+
+.loader {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -203,7 +182,8 @@ footer{
     justify-content: center;
     align-items: center;
 }
-.close{
+
+.close {
     background: rgb(204, 61, 61);
     color: white;
     z-index: 1;
@@ -212,11 +192,33 @@ footer{
     border-radius: 200px;
     padding: 0.2rem 0.4rem;
     font-weight: bolder;
-    top: 2%; 
+    top: 2%;
     right: 50%;
     box-shadow: 0 3px 30px rgb(37, 37, 37);
     cursor: pointer;
 }
-.close:hover{
+
+.close:hover {
     opacity: 75%;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    #form-container {
+        width: 90%;
+    }
+
+    .input-wrapper {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 2321px) {
+
+    #form-container {
+        width: 1160px;
+    }
 }
