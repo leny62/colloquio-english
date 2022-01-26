@@ -11,39 +11,19 @@ const nameLabel = document.querySelector('#name');
 const emailLabel = document.querySelector('#email');
 const phoneLabel = document.querySelector('#phone');
 const companyLabel = document.querySelector('#company');
+const textAreaLabel = document.querySelector('#textarea');
 const phoneRegex = /^\d{8,10}$/;
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const validator = () => {
-    
-    if (nameInput.value.length < 1) {
-        nameLabel.innerHTML = 'Write your name and surname';
-        nameInput.style.borderColor = 'red';
-        nameLabel.style.color = 'red';
-    }
-    if (emailInput.value.length < 1 || !emailInput.value.match(emailRegex) ){
-        emailLabel.innerHTML = 'Write an email(example@example.com)'
-        emailInput.style.borderColor = 'red';
-        emailLabel.style.color = 'red';
-    }
-
-    if (phoneInput.value.length < 1) {
-        phoneLabel.innerHTML = 'Write your phone number';
-        phoneInput.style.borderColor = 'red';
-        phoneLabel.style.color = 'red'
-    }
-    if (companyInput.value.length < 1) {
-        companyLabel.innerHTML = 'Write your company name';
-        companyInput.style.borderColor = 'red';
-        companyLabel.style.color = 'red'
-    }
-    if (textArea.value.length < 1) {
-        textArea.style.borderColor = 'red';
-        textArea.style.color = 'red';
-        textArea.innerHTML= 'Write your message';
-    }
-
+const validator = (inputName, labelName, message) => {
+        if (inputName.value.length < 1 || !emailInput.value.match(emailRegex)) {
+        labelName.innerHTML = message
+        inputName.style.borderColor = 'red';
+        labelName.style.color = 'red';
+        }
 }
+
+
 const reset = () => {
     inputs.forEach((input) => {
                  input.style.borderColor = '#000000';
@@ -57,9 +37,9 @@ const reset = () => {
     emailLabel.innerHTML = 'Email';
     phoneLabel.innerHTML = 'Phone';
     companyLabel.innerHTML = 'Company';
+    textAreaLabel.innerHTML = 'Your message';
     textArea.style.borderColor = '#000000';
-    textArea.style.color = '#000000';
-    textArea.innerHTML= '';
+    textAreaLabel.style.color = '#000000';
 
 };
 
@@ -84,7 +64,13 @@ const clearErrorOnChange = (inputName, labelName) => {
 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    validator()
+    /**********Call validator function */
+    validator(nameInput, nameLabel, 'Write your name and surname')
+    validator(emailInput, emailLabel, 'Write an email(example@example.com)')
+    validator(phoneInput, phoneLabel, 'Write your phone number')
+    validator(companyInput, companyLabel, 'Write your company name')
+    validator(textArea, textAreaLabel, 'Write your message')
+
     if(nameLabel.style.color !=="red" && emailLabel.style.color!=="red" && companyLabel.style.color!=="red" && phoneLabel.style.color!=="red" && textArea.style.color!=="red"){
     document.querySelector(".loaderContainer").classList.remove("hidden")
     }
@@ -100,7 +86,7 @@ resetBtn.addEventListener('click', (e) => {
     reset()
 });
 
-phoneInput.addEventListener('change', (e) => {
+phoneInput.addEventListener('keyup', (e) => {
     handlePhoneChange(e)
 });
 
@@ -109,4 +95,4 @@ clearErrorOnChange(nameInput, nameLabel)
 clearErrorOnChange(emailInput, emailLabel)
 clearErrorOnChange(phoneInput, phoneLabel)
 clearErrorOnChange(companyInput, companyLabel)
-clearErrorOnChange(textArea, textArea)
+clearErrorOnChange(textArea, textAreaLabel)
